@@ -1,0 +1,8 @@
+body{
+    height: 100%;
+    background-image: url("../src/4.jpg");
+    display: flex;
+    justify-content: right;
+
+
+}
