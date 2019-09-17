@@ -19,5 +19,11 @@ var server = app.listen(8080, function(){
     console.log("Now the Sever running at #8080...");
 })
 
+app.use(session({
+    secret: "express-work",
+    resave:false,
+    saveUninitialized: true
+}))
+
 app.use(express.static(path.join(__dirname, 'public')));
 

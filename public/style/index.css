@@ -1,8 +1,26 @@
-body{
-    height: 100%;
-    background-image: url("../src/4.jpg");
+.navbar{
+    background-color: black;
+    font-family: 'Sunflower', sans-serif;
     display: flex;
-    justify-content: right;
-
 
 }
+
+.nav-item > a, .navbar> a{
+    color:white;
+    text-decoration: none;
+    font-size:20px;
+    padding:8px 15px 8px 10px;
+}
+
+
+*{
+    margin:0;
+}
+
+html { 
+    background: url(/src/5.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    }
