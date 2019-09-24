@@ -1,19 +1,22 @@
-var express = require('express');
-var fs = require('fs');
-var bodyParser = require('body-parser');
-var session = require('express-session');
-var path = require('path');
-
-var mongoose = require('mongoose');
-
-
-
-var app = express();
-var indexRouter = require('./router/main');
-var user = require('./models/user');
+const express = require('express');
+const fs = require('fs');
+const bodyParser = require('body-parser');
+const session = require('express-session');
+const path = require('path');
+var flash = require('connect-flash');
+const mongoose = require('mongoose');
+const passport = require('passport');
 
 
-//configure app to use bodyparser
+const app = express();
+
+const passportConfig = require('./public/js/passport')
+const indexRouter = require('./router/main');
+const user = require('./models/user');
+const db = mongoose.connection;
+
+
+// configure app to use bodyparser
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
@@ -22,19 +25,34 @@ app.set('views', __dirname+"/views");
 app.set('view engine', 'ejs');
 app.engine('html',require('ejs').renderFile);
 
+//db
+db.on('error',console.error);
+db.once('open',()=>{
+    console.log('connected to db');
+});
+
+mongoose.connect('mongodb://localhost/mongodb_3');
+
+app.use(session({
+    secret: "express-work",
+    resave:true,
+    saveUninitialized: false
+}))
+
+// Initialize passport
+app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
+passportConfig(passport);
+
+app.use(express.static(path.join(__dirname, 'public')));
 app.use('/',indexRouter);
 
 //run server
-var server = app.listen(8080, function(){
+const server = app.listen(8080, function(){
     console.log("Now the Sever running at #8080...");
 })
 
 
-app.use(session({
-    secret: "express-work",
-    resave:false,
-    saveUninitialized: true
-}))
 
-app.use(express.static(path.join(__dirname, 'public')));
-
+module.exports = app;

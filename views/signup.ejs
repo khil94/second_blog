@@ -7,21 +7,22 @@
 <body>
     <% include ./components/links.ejs %>
 
-    <main role="login">
+    <main role="signup">
         <section >
             <article class="logbox">
-                <form id="login-box" method="post" action="/login">
+                <form id="login-box" method="post" action="/signup">
                     <div class="input-group">
                         <input type="text" name="mail" class="form-control" placeholder="Recipient's Email" aria-describedby="mail-addon1">
                     </div>        
                     <div class="input-group">
                         <input type="text" name="password" class="form-control" placeholder="Recipient's password" aria-describedby="pass-addon2">
                     </div>
+                    <div class="input-group">
+                        <input type="text" name="name" class="form-control" placeholder="Recipient's name" aria-describedby="pass-addon2">
+                    </div>
                     <button type="submit" name="submit" class="btn btn-primary ">Login</button>
                 </form>
-                <% if(message.length > 0) {%>
-                    <div class= "alert alert-danger"><%= message %></div>
-                <% } %>
+
             </article>
         </section>
     </main>

@@ -1,21 +1,39 @@
-.navbar{
+.callapse{
     background-color: black;
     font-family: 'Sunflower', sans-serif;
-    display: flex;
-
 }
 
-.nav-item > a, .navbar> a{
+.container-fluid{
+    padding:0;
+}
+
+.navbar-right{
+    margin-right: 0;
+}
+
+.navbar-default{
+    border:0;
+}
+
+.navbar-default .navbar-nav > li > a {
     color:white;
     text-decoration: none;
     font-size:20px;
-    padding:8px 15px 8px 10px;
+    margin-bottom: 0;
 }
 
-
-*{
-    margin:0;
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    color: #777; /*Sets the text hover color on navbar*/
 }
+
+.navbar-default{
+    margin-bottom:0;
+}
+
+#login-box > *{
+    margin-bottom:10px;
+}
+
 
 html { 
     background: url(/src/5.jpg) no-repeat center center fixed; 
