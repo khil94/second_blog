@@ -43,30 +43,21 @@
     background-color: rgba(255,255,255,0.5);
 }
 
-/* #login-box{
-
-    display:flex;
-    justify-content: center;
-    align-items: center;
-} */
-
-.logbox{
-    width:50%;
-    height:50%;
-    display: -webkit-flex; 
+#login-box, main, .logbox{
     display: flex;
-    text-align: center;
+    display: -webkit-flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-main{
-    display:flex;
-    height:inherit;
-    justify-content: center;
-    align-items: center;
+.logbox{
+    width:50%;
+    height:50%;
+}
 
+main{
+    height:inherit;
 }
 
 body { 
