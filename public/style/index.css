@@ -22,6 +22,7 @@
     text-decoration: none;
     font-size:20px;
     margin-bottom: 0;
+
 }
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
@@ -31,29 +32,42 @@
 .navbar-default{
     margin-bottom:0;
 }
+  
 
 #login-box > *{
-    margin-bottom:10px;
-    
+    margin-bottom:30px;
 }
 
-.logbox{
+
+.jumbotron{
     background-color: rgba(255,255,255,0.5);
 }
 
-#login-box{
-    min-width:100%;
-    min-height: 100%;
+/* #login-box{
+
+    display:flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+.logbox{
+    width:50%;
+    height:50%;
+    display: -webkit-flex; 
+    display: flex;
     text-align: center;
-    align-content: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-section{
-    width: 900px;
-    height : 600px;
+main{
+    display:flex;
+    height:inherit;
+    justify-content: center;
+    align-items: center;
 
 }
-
 
 body { 
     background: url(/src/5.jpg) no-repeat center center fixed; 
@@ -61,4 +75,26 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    height:100vh;
+    float:hidden;
+}
+
+
+/* config of navbar breakpoint */
+@media (max-width: 768px)  {
+   .navbar-collapse {
+       display:flex;
+       flex-direction: row;
+       flex-wrap: nowrap;
+       justify-content: flex-start;
+   }
+
+   .navbar-nav{
+       margin:5px 0 5px 0;
+   }
+   .navbar-right{
+        position: absolute;
+        right:15px;
+        display:inline-flex;
+   }
 }
