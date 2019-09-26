@@ -1,6 +1,8 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 const bcrypt = require('bcrypt-nodejs');
-var schema = mongoose.Schema;
+const schema = mongoose.Schema;
+
+const saltRounds = 10;
 
 var userSchema = new schema({
     mail: String,
@@ -8,12 +10,13 @@ var userSchema = new schema({
     name: String
 },{versionKey: false});
 
-userSchema.methods.comparePassword = function(inputPass, cb){
-    if ( inputPass === this.password){
-        cb(null, true);
-    }else{
-        cb('error');
-    }
-};
+userSchema.methods.enhash = function(pass){
+    return bcrypt.hashSync(pass, bcrypt.genSaltSync(saltRounds));
+}
+
+
+userSchema.methods.compare = function(pass){
+    return bcrypt.compareSync(pass, this.password);
+}
 
 module.exports = mongoose.model('user',userSchema);

@@ -20,9 +20,11 @@
                     <div class="input-group">
                         <input type="text" name="name" class="form-control" placeholder="Recipient's name" aria-describedby="pass-addon2">
                     </div>
-                    <button type="submit" name="submit" class="btn btn-primary ">Login</button>
+                    <button type="submit" name="submit" class="btn btn-primary ">SignUp</button>
                 </form>
-
+                <% if(message.length>0){ %>
+                    <div class="alert alert-danger"><%= message %></div>
+                <% } %>
             </article>
         </section>
     </main>

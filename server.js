@@ -35,9 +35,12 @@ mongoose.connect('mongodb://localhost/mongodb_3');
 
 app.use(session({
     secret: "express-work",
-    resave:true,
-    saveUninitialized: false
-}))
+    resave:false,
+    saveUninitialized: true,
+    cookie :{
+        maxAge : 1000*60*2
+    }
+}));
 
 // Initialize passport
 app.use(flash());

@@ -9,7 +9,7 @@
 
     <main role="login">
         <section >
-            <article class="logbox">
+            <article class="logbox jumbotron">
                 <form id="login-box" method="post" action="/login">
                     <div class="input-group">
                         <input type="text" name="mail" class="form-control" placeholder="Recipient's Email" aria-describedby="mail-addon1">
@@ -19,6 +19,8 @@
                     </div>
                     <button type="submit" name="submit" class="btn btn-primary ">Login</button>
                 </form>
+
+                <div>Don't you have account? <a href="signup">Sign up now!</a></div>
                 <% if(message.length > 0) {%>
                     <div class= "alert alert-danger"><%= message %></div>
                 <% } %>

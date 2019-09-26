@@ -8,10 +8,11 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li role="presentation">
-                    <a href="/login">Login</a>
-                </li>
-                <li role="presentation">
-                        <a href="/signup">SignUp</a>
+                    <% if(!user) { %>
+                        <a href="/login">Login</a>
+                    <% }else{ %>
+                        <a href="/logout">Logout</a>
+                    <% } %>
                 </li>
             </ul>
         </div>
