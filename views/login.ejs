@@ -7,9 +7,10 @@
 <body>
     <% include ./components/links.ejs %>
 
-    <main role="login">
-        <div class="logbox jumbotron">
-            <form id="login-box" method="post" action="/login">
+    <div class="log-container" role="login">
+        <div class="logbox jumbotron content">
+            <h3>Login for the Service!</h3><br>
+            <form class="login-box" method="post" action="/login">
                 <div class="input-group">
                     <input type="text" name="mail" class="form-control" placeholder="Recipient's Email" aria-describedby="mail-addon1">
                 </div>        
@@ -25,6 +26,6 @@
                 </div>
             </form>
             
-    </main>
+    </div>
 </body>
 </html>

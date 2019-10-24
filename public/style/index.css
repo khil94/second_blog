@@ -34,8 +34,8 @@
 }
   
 
-#login-box > *{
-    margin-bottom:30px;
+.login-box > *{
+    margin-bottom:20px;
 }
 
 
@@ -43,7 +43,7 @@
     background-color: rgba(255,255,255,0.5);
 }
 
-#login-box, main, .logbox{
+.login-box, .logbox,.log-container{
     display: flex;
     display: -webkit-flex;
     flex-direction: column;
@@ -53,11 +53,15 @@
 
 .logbox{
     width:50%;
-    height:50%;
 }
 
-main{
+.mainbox{
+    width: 30%;
+}
+
+.log-container{
     height:inherit;
+    text-align: center;
 }
 
 body { 

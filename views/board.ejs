@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <% include ./components/head.ejs %>
+    <title><%= title %></title>
+</head>
+<body>
+    <% include ./components/links.ejs %>
+    <div class="panel panel-default container">
+        <div class="panel-heading">head</div>
+        <div class="panel-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>제목</th>
+                        <th>작성자</th>
+                        <th>날짜</th>
+                        <th>조회수</th>
+                    </tr>
+                </thead>
+                <tbody class="board-table">
+                    <%
+                    for(var i=0; i<rows; i++)
+                    {
+                    %>
+                        <tr>
+                            <th><%= board[i] %></th>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+        <a class="btn btn-default">글쓰기</a>
+    </div>
+
+    
+</body>
+</html>

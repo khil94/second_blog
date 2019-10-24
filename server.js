@@ -1,6 +1,4 @@
 const express = require('express');
-const fs = require('fs');
-const bodyParser = require('body-parser');
 const session = require('express-session');
 const path = require('path');
 var flash = require('connect-flash');
@@ -13,12 +11,13 @@ const app = express();
 const passportConfig = require('./public/js/passport')
 const indexRouter = require('./router/main');
 const user = require('./models/user');
+const board = require('./models/board');
 const db = mongoose.connection;
 
 
 // configure app to use bodyparser
-app.use(bodyParser.urlencoded({extended:true}));
-app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({extended:true}));
+// app.use(bodyParser.json());
 
 //setting views
 app.set('views', __dirname+"/views");

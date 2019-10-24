@@ -2,6 +2,8 @@ const express = require('express');
 const User = require('../models/user');
 const router = express.Router();
 const passport = require('passport');
+const Board = require('../models/board');
+
 
 router.get('/', function(req, res, next){
     res.render("index", {
@@ -9,6 +11,17 @@ router.get('/', function(req, res, next){
         user: req.user,
     });
 });
+User.countDocuments({},function(err,count){
+    router.get('/board',function(req,res,next){
+        res.render('board',{
+            title:'node',
+            user:req.user,
+            rows: count,
+            board: User.find()
+        });
+    })
+})
+
 
 router.get('/login', function(req, res, next){
     res.render('login',{
@@ -30,6 +43,8 @@ router.get('/logout',function(req,res,next){
     req.logOut();
     res.redirect('/');
 });
+
+
 
 router.post('/login', passport.authenticate("login", {
     failureRedirect:'/login',
