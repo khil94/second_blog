@@ -11,17 +11,24 @@ router.get('/', function(req, res, next){
         user: req.user,
     });
 });
-User.countDocuments({},function(err,count){
-    router.get('/board',function(req,res,next){
+
+
+router.get('/board',function(req,res,next){
+    Board.find({},function(err,board){
         res.render('board',{
             title:'node',
             user:req.user,
-            rows: count,
-            board: User.find()
+            board: board
         });
     })
 })
 
+router.get('/write', function(req,res,next){
+    res.render('write',{
+        title:'node',
+        user: req.user
+    });
+})
 
 router.get('/login', function(req, res, next){
     res.render('login',{

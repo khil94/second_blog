@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang='ko'>
+    <head>
+        <% include ./components/head.ejs %>
+        <title><%= title %></title>
+    </head>
+    <body>
+        <% include ./components/links.ejs %>
+        <div class="log-container" role="signup">
+        <div class="logbox jumbotron content">
+            <form class="write-box" method="post" action="#">
+                <div class="input-group">
+                    <h6>제목</h6>
+                    <input type="text" name="write-title" class="form-control" placeholder="title">
+                </div>        
+                <div class="input-group">
+                    <h6>내용</h6>
+                    
+                    <input type="text" name="write-content" class="form-control" placeholder="content">
+                </div>
+                <button type="button" name="write-cancel" onclick="history.back(1);" class="btn btn-default ">취소</button>
+                <button type="submit" name="write-submit" class="btn btn-primary ">확인</button>
+            </form>
+ 
+        </div>
+    </div>
+    </body>
+</html>
